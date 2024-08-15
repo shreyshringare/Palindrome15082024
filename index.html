@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Palindrome Checker by Shreyas</title>
+    <style>
+        *{
+            font-size:40px;
+        }
+        body{background-color: linen;}
+        h1{
+            background-color: black;
+            color: white;
+            border-radius: 20px;
+        }
+        #str1{
+            border-radius: 15px;
+            background-color: white;
+        }
+        input{
+            border-radius: 10px;
+            background-color: darkgrey;
+        }
+    </style>
+    </head>
+    <body>
+        <center>
+            <h1>Palindrome Checker</h1>
+            <form onsubmit="check()">
+                <input type="text" placeholder="Enter String" id="str1">
+                <br><br>
+                <input type="submit" value="Check">
+                <br>
+                <h2 id="msg"/>
+            </form>
+            <script>
+                function check(){
+                    event.preventDefault();
+                    let str1=document.getElementById("str1");
+                    let msg=document.getElementById("msg");
+
+                    if(str1.value===""){
+                        alert("Empty string cannot be entered.");
+                        msg.innerHTML="";
+                        str1.focus();
+                        return;
+                    }
+
+                    let fwdstr=str1.value;
+                    let revstr=fwdstr.split("").reverse().join("");
+                    let res="";
+
+                    if(fwdstr===revstr){
+                        res=str1.value+" is a Palindrome.";
+                    }
+                    else{
+                        res=str1.value+" is NOT a Palindrome.";
+                    }
+                    msg.innerHTML=res;
+                }
+            </script>
+        </center>
+    </body>
+</html>
